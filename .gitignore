@@ -1,7 +1,6 @@
 # Ignore general operating system files
 .DS_Store
 Thumbs.db
-/venv
 # Ignore Python-related files
 __pycache__/
 *.pyc
