@@ -3,14 +3,14 @@ from django.contrib.auth.models import User
 from django.db.models.query import QuerySet
 from django.utils import timezone
 
-class Category(models.model):
+class Category(models.Model):
     name = models.CharField(max_length = 100)
 
     def __str__(self):
         return self.name
 
 
-class Post(models.model):
+class Post(models.Model):
 
     class PostObjects(models.Manager):
         def get_queryset(self) -> QuerySet:
@@ -21,7 +21,7 @@ class Post(models.model):
         ('published', 'Published'),
     )
 
-    category = models.ForeignKey(Category, on_delete = models.protect, default =1)
+    category = models.ForeignKey(Category, on_delete = models.PROTECT, default =1)
     title = models.CharField(max_length=250)
     excerpt = models.TextField(null=True)
     content = models.TextField()
